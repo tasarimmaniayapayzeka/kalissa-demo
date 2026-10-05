@@ -98,4 +98,33 @@ document.addEventListener('DOMContentLoaded',()=>{
       if(yazi)yazi.textContent=ac?'Daha az göster':'Devamını oku';
     });
   });
+  // Fit detay önerisi B1: sekmeli rehber (ok tuşlarıyla da gezilir)
+  document.querySelectorAll('[data-sekmeli]').forEach(kap=>{
+    const sk=[...kap.querySelectorAll('[role="tab"]')],pn=[...kap.querySelectorAll('[role="tabpanel"]')];
+    if(!sk.length)return;
+    const sec=(i,odak)=>{
+      sk.forEach((b,j)=>{const a=j===i;b.setAttribute('aria-selected',String(a));b.tabIndex=a?0:-1;b.classList.toggle('is-aktif',a)});
+      pn.forEach((x,j)=>{x.hidden=j!==i});
+      if(odak)sk[i].focus({preventScroll:true});
+      if(window.innerWidth<900)sk[i].scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
+    };
+    sk.forEach((b,i)=>{
+      b.addEventListener('click',()=>sec(i));
+      b.addEventListener('keydown',e=>{
+        const n=sk.length;let j=null;
+        if(e.key==='ArrowDown'||e.key==='ArrowRight')j=(i+1)%n;
+        if(e.key==='ArrowUp'||e.key==='ArrowLeft')j=(i-1+n)%n;
+        if(e.key==='Home')j=0;
+        if(e.key==='End')j=n-1;
+        if(j!==null){e.preventDefault();sec(j,true)}
+      });
+    });
+    kap.querySelectorAll('[data-sonraki]').forEach(a=>a.addEventListener('click',e=>{
+      e.preventDefault();const i=+a.dataset.sonraki;sec(i,true);
+      const g=kap.querySelector('.fd-tb-g');
+      if(g.getBoundingClientRect().top<0)g.scrollIntoView({behavior:'smooth',block:'start'});
+    }));
+    pn.forEach((x,j)=>{x.hidden=j!==0});
+    kap.classList.add('is-hazir');
+  });
 });
