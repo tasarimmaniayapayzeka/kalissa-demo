@@ -108,8 +108,17 @@ document.addEventListener('DOMContentLoaded',()=>{
       if(odak)sk[i].focus({preventScroll:true});
       if(window.innerWidth<900)sk[i].scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
     };
+    const mobil=()=>window.innerWidth<900;
+    const kapat=()=>{
+      sk.forEach(b=>{b.setAttribute('aria-selected','false');b.classList.remove('is-aktif')});
+      sk[0].tabIndex=0;pn.forEach(x=>{x.hidden=true});kap.classList.add('is-kapali');
+    };
+    window.addEventListener('resize',()=>{if(!mobil()&&kap.classList.contains('is-kapali')){kap.classList.remove('is-kapali');sec(0)}});
     sk.forEach((b,i)=>{
-      b.addEventListener('click',()=>sec(i));
+      b.addEventListener('click',()=>{
+        if(mobil()&&b.classList.contains('is-aktif')){kapat();return}
+        kap.classList.remove('is-kapali');sec(i);
+      });
       b.addEventListener('keydown',e=>{
         const n=sk.length;let j=null;
         if(e.key==='ArrowDown'||e.key==='ArrowRight')j=(i+1)%n;

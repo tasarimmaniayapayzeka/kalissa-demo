@@ -2884,6 +2884,7 @@ html.js .fd-dv-bt:hover{background:var(--fd-ink);color:#fff}
   .fd-tb-l button::before{display:none}
   .fd-tb-l button.is-aktif{padding-left:16px;background:var(--fd-yesil);border-color:var(--fd-yesil);color:#fff}
   .fd-tb-l button.is-aktif span{color:#a9bcb0}
+  .fd-tb-l button.is-aktif::after{content:"\2715";margin-left:2px;font-size:11px;opacity:.8}
   .fd-ak{grid-template-columns:minmax(0,1fr)}
   .fd-ak-l{position:static}
   .fd-ak-r{margin-top:22px}
