@@ -1,0 +1,4 @@
+Gontserrat (Ospiro, 2020) - Montserrat turevi.
+Montserrat: Copyright 2011 The Montserrat Project Authors (https://github.com/JulietaUla/Montserrat).
+Lisans: SIL Open Font License 1.1 - https://openfontlicense.org
+Bu klasordeki dosyalar Turkce karakter alt kumesiyle WOFF2 bicimine cevrilmistir.
