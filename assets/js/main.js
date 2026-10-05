@@ -65,4 +65,37 @@ document.addEventListener('DOMContentLoaded',()=>{
     window.addEventListener('scroll',()=>{if(!bekliyor){bekliyor=true;requestAnimationFrame(isaretle)}},{passive:true});
     isaretle();
   }
+  // Fit detay önerileri: rehber içindekilerinde görünen başlık işaretlenir
+  const toc=document.querySelector('[data-toc]');
+  if(toc){
+    const tl=[...toc.querySelectorAll('a[href^="#"]')];
+    const tb=tl.map(a=>document.getElementById(a.getAttribute('href').slice(1)));
+    let tbek=false;
+    const tisa=()=>{
+      tbek=false;let ak=0;const es=window.innerHeight*.4;
+      tb.forEach((el,i)=>{if(el&&el.getBoundingClientRect().top<=es)ak=i});
+      tl.forEach((a,i)=>a.classList.toggle('is-aktif',i===ak));
+    };
+    window.addEventListener('scroll',()=>{if(!tbek){tbek=true;requestAnimationFrame(tisa)}},{passive:true});
+    tisa();
+  }
+  // Fit detay önerileri: "Devamını oku" (metin sayfada hep var; kapalıyken yalnız kısaltılmış görünür)
+  document.querySelectorAll('[data-devam]').forEach(kap=>{
+    const bt=kap.querySelector('.fd-dv-bt'),m=kap.querySelector('.fd-dv-metin');
+    if(!bt||!m)return;
+    const yazi=bt.querySelector('span');
+    bt.addEventListener('click',()=>{
+      const ac=!kap.classList.contains('is-acik');
+      if(ac){
+        m.style.maxHeight=m.scrollHeight+'px';kap.classList.add('is-acik');
+        const bitti=e=>{if(e.propertyName==='max-height'){m.style.maxHeight='none';m.removeEventListener('transitionend',bitti)}};
+        m.addEventListener('transitionend',bitti);
+      }else{
+        m.style.maxHeight=m.scrollHeight+'px';void m.offsetHeight;m.style.maxHeight='';kap.classList.remove('is-acik');
+        if(kap.getBoundingClientRect().top<0)kap.scrollIntoView({behavior:'smooth',block:'start'});
+      }
+      bt.setAttribute('aria-expanded',String(ac));
+      if(yazi)yazi.textContent=ac?'Daha az göster':'Devamını oku';
+    });
+  });
 });
