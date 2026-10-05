@@ -51,4 +51,18 @@ document.addEventListener('DOMContentLoaded',()=>{
     const msg=`Merhaba Kalissa, web sitenizden yazıyorum.\nAd: ${data.get('ad')}\nBölüm: ${kind}\nHizmet: ${data.get('hizmet')||'Belirtilmedi'}\nMesaj: ${data.get('mesaj')}`;
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`,'_blank','noopener,noreferrer');
   });
+  // Fit detay: sayfa içi gezinmede görünen bölümün sekmesi işaretlenir
+  const fdnav=document.querySelector('[data-fdnav]');
+  if(fdnav){
+    const sekmeler=[...fdnav.querySelectorAll('a[href^="#"]')];
+    const bolumler=sekmeler.map(a=>document.getElementById(a.getAttribute('href').slice(1)));
+    let bekliyor=false;
+    const isaretle=()=>{
+      bekliyor=false;let aktif=0;const esik=window.innerHeight*.35;
+      bolumler.forEach((el,i)=>{if(el&&el.getBoundingClientRect().top<=esik)aktif=i});
+      sekmeler.forEach((a,i)=>{a.classList.toggle('is-aktif',i===aktif);if(i===aktif)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')});
+    };
+    window.addEventListener('scroll',()=>{if(!bekliyor){bekliyor=true;requestAnimationFrame(isaretle)}},{passive:true});
+    isaretle();
+  }
 });
