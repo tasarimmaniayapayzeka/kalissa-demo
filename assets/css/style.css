@@ -3402,6 +3402,16 @@ html.js .fd-dv-bt:hover{background:var(--fd-ink);color:#fff}
   .kb-oz ul{grid-template-columns:1fr}
   .kb-oz li{border-left:0;padding:0}
 }
+
+/* Öneri A (6 Eki, kullanıcı isteği): üst alan ve footer Hakkımızda'daki gibi yeşil, üstünde beyaz */
+.ka-kolaj-s{padding-top:30px}
+.p-ka .ft{background:#1b3a2b;color:#f4efe8;border-top:0}
+.p-ka .ft .logo-img{filter:brightness(0) invert(1)}
+.p-ka .ft .logo-sub,.p-ka .ft p,.p-ka .ft a{color:#f1ece4}
+.p-ka .ft a:hover{color:#fff}
+.p-ka .ft .ft-sep{background:rgba(255,255,255,.26)}
+.p-ka .ft .socials a{color:#fff}
+@media (max-width:767px){.ka-kolaj-s{padding-top:20px}}
 /* <<< iletisim */
 
 /* ---------- hareket: yalnız html.hk (betik çalışıyor, hareket azaltılmamış) ---------- */
