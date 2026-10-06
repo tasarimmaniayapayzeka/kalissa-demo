@@ -3767,7 +3767,22 @@ html:not(.js) .kar-k{position:relative;left:auto;flex:none;margin:0;transform:no
 
 /* Hizmetler 5 (6 Eki, kullanıcı isteği): Fit şeridi Fit sayfasındaki zeminde (adaçayı yeşili + yaprak) */
 .hz3--fz{position:relative;isolation:isolate;background:#e5e9dc}
-.hz3-yaprak{position:absolute;right:0;top:0;z-index:-1;height:100%;width:auto;max-width:none;mix-blend-mode:multiply;opacity:.6;pointer-events:none}
+.p-hz5 .hz3{position:relative;isolation:isolate}
+/* sağda yaprak yerine (kullanıcı isteği) Fit/Beauty sayfalarındaki gibi kenardan taşan silik Kalissa logosu */
+.hz3-mono{position:absolute;z-index:-1;top:50%;right:0;height:150%;aspect-ratio:151.48/162.83;translate:34% -50%;background:rgba(27,66,48,.09);-webkit-mask:url(../images/logo/kalissa-ss-ikon-siyah.svg) center/contain no-repeat;mask:url(../images/logo/kalissa-ss-ikon-siyah.svg) center/contain no-repeat;pointer-events:none;transition:transform 1.4s var(--ease),background-color .6s}
+.hz3--fz:hover .hz3-mono{transform:rotate(-6deg) scale(1.04);background-color:rgba(27,66,48,.13)}
+/* sol boşlukta dikey işaret: yalnız geniş masaüstünde */
+.hz3-yan{display:none}
+@media (min-width:1500px){
+  .p-hz5 .hz3-yan{position:absolute;z-index:1;left:calc(((100% - 1440px) / 2 + 80px) / 2);top:50%;translate:-50% -50%;display:flex;flex-direction:column;align-items:center;gap:16px;color:#1b4230;pointer-events:none}
+  .p-hz5 .hz3--bt .hz3-yan{color:#9a6a5c}
+  .hz3-yan b{font:400 60px/1 var(--serif);color:transparent;-webkit-text-stroke:1.4px currentColor;opacity:.8;transition:opacity .6s,color .6s}
+  .hz3-yan i{width:1px;height:64px;background:currentColor;opacity:.35;transition:height .7s var(--ease),opacity .6s}
+  .hz3-yan span{writing-mode:vertical-rl;transform:rotate(180deg);font:600 11px/1 var(--sans);letter-spacing:.42em;opacity:.7;transition:letter-spacing .7s var(--ease),opacity .6s}
+  .p-hz5 .hz3:hover .hz3-yan b{opacity:.9;color:currentColor}
+  .p-hz5 .hz3:hover .hz3-yan i{height:110px;opacity:.6}
+  .p-hz5 .hz3:hover .hz3-yan span{letter-spacing:.5em;opacity:1}
+}
 .hz3--fz .hz3-k:hover b,.hz3--fz .hz3-tum:hover{color:#1b4230}
 .hz3--fz .hz3-ok:hover:not(:disabled){background:#1b4230;border-color:#1b4230}
 /* <<< iletisim */
