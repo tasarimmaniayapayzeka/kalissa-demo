@@ -3446,6 +3446,46 @@ html.js .fd-dv-bt:hover{background:var(--fd-ink);color:#fff}
   .hdr--fit .hdr-nav .hdr-alt-m a{padding:10px 0;font-size:14px;border-bottom:0;border-radius:0;color:#5a524e}
   .hdr--fit .hdr-nav .hdr-alt-m a.is-aktif{background:none;color:var(--green);font-weight:600}
 }
+
+/* Beauty 4 (6 Eki, kullanıcı isteği): hizmetler 3B karusel */
+.bt4-hiz{overflow:hidden;padding-bottom:44px}
+.kar{--kw:clamp(260px,27vw,410px);position:relative;margin-top:30px;outline:none}
+.kar:focus-visible{outline:2px solid var(--green);outline-offset:6px;border-radius:12px}
+.kar-sahne{position:relative;height:calc(var(--kw)*4/3 + 8px);perspective:1500px;transform-style:preserve-3d;touch-action:pan-y;user-select:none}
+.kar-k{--o:0;--m:0;position:absolute;left:50%;top:0;width:var(--kw);aspect-ratio:3/4;margin-left:calc(var(--kw)/-2);border-radius:18px;overflow:hidden;background:#e9e1d8;color:#fff;box-shadow:0 34px 60px -32px rgba(40,25,20,.6);transform:translateX(calc(var(--o)*64%)) translateZ(calc(var(--m)*-170px)) rotateY(calc(var(--o)*-26deg));filter:brightness(calc(1 - var(--m)*.1)) saturate(calc(1 - var(--m)*.18));transition:transform .85s var(--ease),filter .6s,opacity .5s}
+.kar:not(.is-hazir) .kar-k:not(:first-child){opacity:0}
+.kar-k.is-uzak{opacity:0;pointer-events:none}
+.kar-k img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;transition:transform 1.4s var(--ease);-webkit-user-drag:none}
+.kar-k::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,15,12,0) 38%,rgba(22,15,12,.74) 100%);transition:opacity .5s}
+.kar-k-t{position:absolute;left:0;right:0;bottom:0;z-index:2;display:flex;flex-direction:column;gap:6px;padding:22px 22px 24px}
+.kar-k-t small{font:600 10px/1 var(--sans);letter-spacing:.22em;opacity:.85}
+.kar-k-t b{font:400 clamp(24px,2.1vw,32px)/1.05 var(--serif)}
+.kar-k-t em{font-style:normal;font-size:13px;line-height:1.45;opacity:.92;transition:opacity .4s}
+.kar-k-t i{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-style:normal;font-size:13px;font-weight:600;opacity:0;transform:translateY(8px);transition:opacity .5s .25s,transform .5s .25s var(--ease)}
+.kar-k-t i .ic{width:13px;height:13px}
+.kar-k:not(.is-on) .kar-k-t em{opacity:0}
+.kar-k.is-on .kar-k-t i{opacity:1;transform:none}
+.kar-k.is-on:hover img{transform:scale(1.05)}
+.kar-k:not(.is-on){cursor:pointer}
+.kar-alt{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:28px}
+.kar-ok{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;border:1px solid #cdbfb4;background:#fff;color:#1f1a17;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.kar-ok .ic{width:16px;height:16px}
+.kar-ok--g .ic{transform:rotate(180deg)}
+.kar-ok:hover{background:var(--green);border-color:var(--green);color:#fff}
+.kar-nok{display:flex;gap:8px}
+.kar-nok button{width:8px;height:8px;padding:0;border:0;border-radius:999px;background:#d8c9bf;cursor:pointer;transition:width .35s var(--ease),background .3s}
+.kar-nok button.is-on{width:26px;background:var(--green)}
+.kar-say{min-width:64px;text-align:center;font:400 15px/1 var(--serif);color:#6c6460}
+.kar-say b{font-weight:400;color:#1f1a17}
+@media (max-width:767px){
+  .kar{--kw:min(70vw,290px)}
+  .kar-k{transform:translateX(calc(var(--o)*80%)) translateZ(calc(var(--m)*-150px)) rotateY(calc(var(--o)*-22deg))}
+  .kar-say{display:none}
+  .kar-alt{gap:14px}
+}
+@media (prefers-reduced-motion:reduce){.kar-k,.kar-k img{transition:none}}
+html:not(.js) .kar-sahne{display:flex;gap:14px;height:auto;overflow-x:auto;perspective:none}
+html:not(.js) .kar-k{position:relative;left:auto;flex:none;margin:0;transform:none;opacity:1!important}
 /* <<< iletisim */
 
 /* ---------- hareket: yalnız html.hk (betik çalışıyor, hareket azaltılmamış) ---------- */

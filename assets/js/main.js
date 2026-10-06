@@ -154,4 +154,27 @@ document.addEventListener('DOMContentLoaded',()=>{
     const g=[...l.querySelectorAll('.kb-sahne-g')],ad=l.querySelector('.kb-sahne-ad');if(g.length<2)return;let on=0;
     l.querySelectorAll('.kb-satir').forEach(r=>{const git=()=>{if(g[on].getAttribute('src')===r.dataset.img)return;const y=1-on;g[y].src=r.dataset.img;g[y].classList.add('is-on');g[on].classList.remove('is-on');on=y;if(ad)ad.textContent=r.dataset.ad};r.addEventListener('mouseenter',git);r.addEventListener('focus',git)});
   });
+  // Beauty 4: 3B karusel (6 Eki). Ortadaki kart öne çıkar; ok, nokta, kaydırma, klavye; yandaki karta tıklayınca öne gelir
+  document.querySelectorAll('[data-kar]').forEach(k=>{
+    const ks=[...k.querySelectorAll('.kar-k')],n=ks.length,nok=[...k.querySelectorAll('.kar-nok button')],say=k.querySelector('.kar-say b');
+    let a=0,surukle=false,x0=null;
+    const ciz=()=>{
+      ks.forEach((el,i)=>{let o=i-a;if(o>n/2)o-=n;if(o<-n/2)o+=n;const m=Math.abs(o);
+        el.style.setProperty('--o',o);el.style.setProperty('--m',m);el.style.zIndex=String(20-m);
+        el.classList.toggle('is-on',o===0);el.classList.toggle('is-uzak',m>2);el.tabIndex=o===0?0:-1;el.setAttribute('aria-hidden',o===0?'false':'true')});
+      nok.forEach((b,i)=>{b.classList.toggle('is-on',i===a);b.setAttribute('aria-current',i===a?'true':'false')});
+      if(say)say.textContent=String(a+1).padStart(2,'0');
+    };
+    const git=i=>{a=(i+n)%n;ciz()};
+    k.querySelector('[data-kar-geri]').addEventListener('click',()=>git(a-1));
+    k.querySelector('[data-kar-ileri]').addEventListener('click',()=>git(a+1));
+    nok.forEach((b,i)=>b.addEventListener('click',()=>git(i)));
+    ks.forEach((el,i)=>el.addEventListener('click',e=>{if(surukle){e.preventDefault();surukle=false;return}if(i!==a){e.preventDefault();git(i)}}));
+    k.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();git(a-1)}if(e.key==='ArrowRight'){e.preventDefault();git(a+1)}});
+    const sahne=k.querySelector('.kar-sahne');
+    sahne.addEventListener('pointerdown',e=>{x0=e.clientX;surukle=false});
+    sahne.addEventListener('pointerup',e=>{if(x0===null)return;const dx=e.clientX-x0;x0=null;if(Math.abs(dx)>40){surukle=true;git(a+(dx<0?1:-1))}});
+    sahne.addEventListener('dragstart',e=>e.preventDefault());
+    ciz();k.classList.add('is-hazir');
+  });
 });
