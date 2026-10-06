@@ -3276,6 +3276,17 @@ html.js .fd-dv-bt:hover{background:var(--fd-ink);color:#fff}
 .p-hk1 .feat:hover h3 span{background-size:100% 1px;color:var(--green)}
 .p-hk1 .feat p{transition:color .4s}
 .p-hk1 .feat:hover p{color:#2a2523}
+
+/* Hakkımızda 2 ve 3 (6 Eki, kullanıcı isteği): footer üstteki bant gibi yeşil, üstünde beyaz */
+.p-hk2 .ft,.p-hk3 .ft{background:#1b3a2b;color:#f4efe8;border-top:0}
+.p-hk2 .ft .logo-img,.p-hk3 .ft .logo-img{filter:brightness(0) invert(1)}
+.p-hk2 .ft .logo-sub,.p-hk3 .ft .logo-sub,.p-hk2 .ft-slogan,.p-hk3 .ft-slogan{color:#e9e3da}
+.p-hk2 .ft a,.p-hk3 .ft a,.p-hk2 .ft p,.p-hk3 .ft p{color:#f1ece4}
+.p-hk2 .ft a:hover,.p-hk3 .ft a:hover{color:#fff}
+.p-hk2 .ft .ft-sep,.p-hk3 .ft .ft-sep{background:rgba(255,255,255,.26)}
+.p-hk2 .ft-legal i,.p-hk3 .ft-legal i{opacity:.45}
+.p-hk2 .ft .socials a,.p-hk3 .ft .socials a{color:#fff;transition:opacity .25s,transform .35s var(--ease)}
+.p-hk2 .ft .socials a:hover,.p-hk3 .ft .socials a:hover{opacity:.75;transform:translateY(-2px)}
 /* <<< iletisim */
 
 /* ---------- hareket: yalnız html.hk (betik çalışıyor, hareket azaltılmamış) ---------- */
