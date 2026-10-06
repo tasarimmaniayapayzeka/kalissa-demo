@@ -3764,6 +3764,12 @@ html:not(.js) .kar-k{position:relative;left:auto;flex:none;margin:0;transform:no
   .hz3-karar-in .hz-wa{width:100%;justify-content:center}
 }
 @media (prefers-reduced-motion:reduce){.hz1-pan.is-on,.hz1-bant-in.is-on{animation:none}}
+
+/* Hizmetler 5 (6 Eki, kullanıcı isteği): Fit şeridi Fit sayfasındaki zeminde (adaçayı yeşili + yaprak) */
+.hz3--fz{position:relative;isolation:isolate;background:#e5e9dc}
+.hz3-yaprak{position:absolute;right:0;top:0;z-index:-1;height:100%;width:auto;max-width:none;mix-blend-mode:multiply;opacity:.6;pointer-events:none}
+.hz3--fz .hz3-k:hover b,.hz3--fz .hz3-tum:hover{color:#1b4230}
+.hz3--fz .hz3-ok:hover:not(:disabled){background:#1b4230;border-color:#1b4230}
 /* <<< iletisim */
 
 /* ---------- hareket: yalnız html.hk (betik çalışıyor, hareket azaltılmamış) ---------- */
