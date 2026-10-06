@@ -193,4 +193,26 @@ document.addEventListener('DOMContentLoaded',()=>{
       const ad=t=>{const q=Math.min(1,(t-t0)/sure);el.textContent=String(Math.round(h*(1-Math.pow(1-q,3))));if(q<1)requestAnimationFrame(ad)};requestAnimationFrame(ad)})},{threshold:.6});
     sayaclar.forEach(x=>sio.observe(x));
   }
+  // Hizmetler 2: Fit / Beauty sekmesi; alttaki bant da sekmeye göre değişir (6 Eki)
+  document.querySelectorAll('[data-hz-sekme]').forEach((b,_,hepsi)=>b.addEventListener('click',()=>{
+    const v=b.dataset.hzSekme;
+    document.querySelectorAll('[data-hz-sekme]').forEach(x=>{const on=x===b;x.classList.toggle('is-on',on);x.setAttribute('aria-selected',String(on));x.tabIndex=on?0:-1});
+    document.querySelectorAll('[data-hz-pan]').forEach(p=>{const on=p.dataset.hzPan===v;p.hidden=!on;p.classList.toggle('is-on',on)});
+  }));
+  // Hizmetler 4: yatay şerit; oklar bir kart kaydırır, sayaç görünen kartları gösterir
+  document.querySelectorAll('[data-hz-ray]').forEach(r=>{
+    const sec=r.closest('.hz3'),iz=r.querySelector('.hz3-iz'),ks=[...iz.children],n=ks.length,say=sec.querySelector('[data-hz-say]');
+    const adim=()=>{const a=ks[0].getBoundingClientRect().width,g=parseFloat(getComputedStyle(iz).columnGap)||0;return a+g};
+    const yaz=()=>{const st=adim(),ilk=Math.round(r.scrollLeft/st),gor=Math.max(1,Math.floor((r.clientWidth+8)/st)),son=Math.min(n,ilk+gor);if(say)say.textContent=String(ilk+1).padStart(2,'0')+' – '+String(son).padStart(2,'0')+' / '+String(n).padStart(2,'0');
+      sec.querySelector('[data-hz-geri]').disabled=r.scrollLeft<4;sec.querySelector('[data-hz-ileri]').disabled=r.scrollLeft+r.clientWidth>=r.scrollWidth-4};
+    sec.querySelector('[data-hz-geri]').addEventListener('click',()=>r.scrollBy({left:-adim(),behavior:'smooth'}));
+    sec.querySelector('[data-hz-ileri]').addEventListener('click',()=>r.scrollBy({left:adim(),behavior:'smooth'}));
+    r.addEventListener('scroll',()=>requestAnimationFrame(yaz),{passive:true});window.addEventListener('resize',yaz);yaz();
+    let x0=null,s0=0,cek=false;
+    r.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;x0=e.clientX;s0=r.scrollLeft;cek=false});
+    window.addEventListener('pointermove',e=>{if(x0===null)return;const dx=e.clientX-x0;if(Math.abs(dx)>6){cek=true;r.classList.add('is-cek');r.scrollLeft=s0-dx}});
+    window.addEventListener('pointerup',()=>{if(x0===null)return;x0=null;r.classList.remove('is-cek')});
+    r.addEventListener('click',e=>{if(cek){e.preventDefault();cek=false}},true);
+    r.addEventListener('dragstart',e=>e.preventDefault());
+  });
 });
