@@ -2911,29 +2911,174 @@ html.js .fd-dv-bt:hover{background:var(--fd-ink);color:#fff}
    natürmort (Higgsfield). Eşyalar ortanın sağında küçük bir grup; süs yazıları eşyaların üstüne
    binmesin diye grubun üstündeki boş duvara alınır. */
 .dh--iletisim{background:#212b1f}
-.dh--iletisim .dh-media img{object-position:50% 62%}
-.dh--iletisim .dh-script{top:44px}
-.dh--iletisim .dh-side{top:190px}
+.dh--blog{background:#503e34}
+.dh--natur .dh-media img{object-position:50% 62%}
+.dh--natur .dh-script{top:44px}
+.dh--natur .dh-side{top:190px}
 /* tablet: görsel yüksekliğe göre ölçeklenir, grup başlığın altına kayardı; görseli sağa al,
    sol kenarı aynı renkteki zemine yumuşakça karışsın */
 @media (min-width:768px) and (max-width:1366px){
-  .dh--iletisim .dh-media img{position:absolute;top:0;left:12%;width:88%;object-position:0 62%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 16%);mask-image:linear-gradient(90deg,transparent,#000 16%)}
+  .dh--natur .dh-media img{position:absolute;top:0;left:12%;width:88%;object-position:0 62%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 16%);mask-image:linear-gradient(90deg,transparent,#000 16%)}
 }
 /* dar tablette yan yazı zeytin dalına yaklaşıyor: gizlenir (mobildeki gibi) */
 @media (min-width:768px) and (max-width:1100px){
-  .dh--iletisim .dh-side{display:none}
+  .dh--natur .dh-side{display:none}
 }
 /* dikey tablet: paragraf daralır, eşya grubu sağ kenara hizalanır (kesilmeden) */
 @media (min-width:768px) and (max-width:1023px){
-  .dh--iletisim .dh-copy p{max-width:400px}
-  .dh--iletisim .dh-media img{left:calc(100% - 828px);width:1057px;max-width:none}
+  .dh--natur .dh-copy p{max-width:400px}
+  .dh--natur .dh-media img{left:calc(100% - 828px);width:1057px;max-width:none}
 }
 @media (max-width:767px){
-  .dh--iletisim .dh-media img{object-position:12% 50%}
+  .dh--natur .dh-media img{object-position:12% 50%}
 }
 
 /* Yeşil bant (tüm sayfalar, 6 Eki): kadın yüzü yerine Fit + Beauty ortak natürmort; eşyalar sağda */
 .gcta--detail .gcta-img img{object-position:100% 50%!important}
+
+/* ===== Beauty genel sayfa (6 Eki): kullanıcının verdiği GPT tasarımı birebir ===== */
+.p-bt main{background:#fbf8f4}
+.bt-hero{padding:46px 0 0;text-align:center}
+.bt-ust{display:block;font:600 11px/1 var(--sans);letter-spacing:.32em;color:#6c6460}
+.bt-hero h1{font:400 clamp(34px,4.4vw,62px)/1.04 var(--serif);letter-spacing:-.02em;color:#1f1a17;margin-top:14px}
+.bt-hero-in>p{font-size:clamp(14px,1.15vw,16.5px);line-height:1.5;color:#4a433f;margin-top:12px}
+.bt-btns{display:flex;justify-content:center;gap:12px;margin-top:22px;flex-wrap:wrap}
+.bt-btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;height:44px;padding:0 26px;border-radius:6px;background:var(--green);color:#fff;border:1.5px solid var(--green);font:600 11.5px/1 var(--sans);letter-spacing:.08em;transition:background .25s,color .25s}
+.bt-btn:hover{background:#244634}
+.bt-btn .ic{width:14px;height:14px}
+.bt-btn--line{background:transparent;color:var(--green);letter-spacing:.01em;font-weight:500;font-size:13px}
+.bt-btn--line:hover{background:var(--green);color:#fff}
+.bt-btn--line .ic-wa{width:17px;height:17px}
+.bt-kolaj{display:grid;grid-template-columns:1fr 2.06fr 1fr;gap:10px;margin-top:22px;height:clamp(220px,22vw,330px)}
+.bt-kol{margin:0;border-radius:10px;overflow:hidden;min-width:0}
+.bt-kol img{width:100%;height:100%;object-fit:cover}
+.bt-kol--o img{object-position:50% 42%}
+.bt-hiz{padding:46px 0 48px}
+.bt-bas{text-align:center}
+.bt-bas h2{font:400 clamp(30px,3.2vw,46px)/1.05 var(--serif);color:#1f1a17;letter-spacing:-.015em}
+.bt-bas p{color:#5a524e;margin-top:8px;font-size:15px}
+.bt-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin:26px auto 0;max-width:1100px}
+.bt-kart{grid-column:span 2;display:flex;flex-direction:column;background:#fff;border:1px solid #ebe3da;border-radius:8px;overflow:hidden;transition:box-shadow .3s,transform .3s;min-width:0}
+.bt-kart:hover{box-shadow:0 14px 34px -18px rgba(40,30,20,.35);transform:translateY(-2px)}
+.bt-kart:nth-child(7){grid-column:3/5}
+.bt-kart figure{margin:0;aspect-ratio:2.57;overflow:hidden}
+.bt-kart img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.bt-kart:hover img{transform:scale(1.04)}
+.bt-kart-t{padding:16px 20px 18px;display:flex;flex-direction:column;flex:1}
+.bt-kart h3{font:400 22px/1.1 var(--serif);color:#1f1a17}
+.bt-kart p{font-size:13px;line-height:1.45;color:#5f5752;margin-top:6px;flex:1}
+.bt-kart-l{display:inline-flex;align-items:center;gap:6px;margin-top:12px;color:var(--green);font-size:13px;font-weight:500;text-decoration:underline;text-underline-offset:3px}
+.bt-kart-l .ic{width:13px;height:13px}
+.bt-yol{background:#f3e5de}
+.bt-yol-in{display:grid;grid-template-columns:1.25fr 2fr;gap:40px;align-items:center;padding-top:32px;padding-bottom:32px}
+.bt-yol h2{font:400 clamp(24px,2.3vw,33px)/1.12 var(--serif);color:#1f1a17;letter-spacing:-.01em}
+.bt-yol-l p{color:#4f4743;font-size:13.5px;margin-top:8px}
+.bt-yol-l .bt-btn{margin-top:18px}
+.bt-adim{display:grid;grid-template-columns:repeat(3,1fr);list-style:none;margin:0;padding:0}
+.bt-adim li{padding:4px 26px;border-left:1px solid rgba(60,40,30,.18)}
+.bt-adim-ic{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#ead3c9;color:#5b4a43}
+.bt-adim-ic .ic{width:17px;height:17px}
+.bt-adim b{display:block;font:400 24px/1 var(--serif);color:#1f1a17;margin-top:12px}
+.bt-adim h3{font:400 18px/1.15 var(--serif);color:#1f1a17;margin-top:6px}
+.bt-adim p{font-size:12.5px;line-height:1.45;color:#5f5752;margin-top:6px}
+.bt-cta{position:relative;overflow:hidden;background:#f6f1ea;text-align:center}
+.bt-cta-zemin{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:0 0}
+.bt-cta-in{position:relative;padding-top:36px;padding-bottom:38px}
+.bt-cta h2{font:400 clamp(28px,2.8vw,40px)/1.05 var(--serif);color:#1f1a17}
+.bt-cta p{color:#4f4743;margin-top:8px;font-size:14.5px}
+.bt-cta .bt-btn{margin-top:16px}
+.bt-cta-saksi{position:absolute;right:max(16px,calc((100vw - 1240px)/2));bottom:0;height:92%;width:auto;mix-blend-mode:multiply;pointer-events:none;-webkit-mask-image:radial-gradient(closest-side,#000 62%,transparent 100%);mask-image:radial-gradient(closest-side,#000 62%,transparent 100%)}
+@media (max-width:1023px){
+  .bt-grid{grid-template-columns:repeat(2,1fr)}
+  .bt-kart,.bt-kart:nth-child(7){grid-column:auto}
+  .bt-yol-in{grid-template-columns:1fr;gap:22px}
+  .bt-cta-saksi{height:72%}
+}
+@media (max-width:767px){
+  .bt-hero{padding-top:30px}
+  .bt-kolaj{grid-template-columns:1fr 1fr;height:auto}
+  .bt-kol--o{grid-column:1/-1;order:-1;aspect-ratio:16/9}
+  .bt-kol--l,.bt-kol--r{aspect-ratio:1}
+  .bt-grid{grid-template-columns:1fr}
+  .bt-adim{grid-template-columns:1fr}
+  .bt-adim li{border-left:0;border-top:1px solid rgba(60,40,30,.18);padding:16px 0}
+  .bt-adim li:first-child{border-top:0;padding-top:0}
+  .bt-cta-in{padding-top:30px;padding-bottom:128px}
+  .bt-cta-saksi{height:120px;right:50%;transform:translateX(50%)}
+}
+
+/* ===== Blog (6 Eki): görselli kartlar; detayda görselli giriş + akordiyon bölümler ===== */
+.acard--gorsel{display:flex;flex-direction:column}
+.acard--gorsel .acard-g{display:block;margin:-26px -26px 20px;aspect-ratio:16/10;overflow:hidden}
+.acard--gorsel .acard-g img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.acard--gorsel:hover .acard-g img{transform:scale(1.04)}
+.acard--gorsel .more{margin-top:auto;padding-top:14px}
+.bl-bas{background:#f6f1ea;padding:46px 0 40px}
+.bl-bas-in{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:center}
+.bl-bas h1{font:400 clamp(34px,4vw,58px)/1.04 var(--serif);letter-spacing:-.02em;color:#1f1a17;margin-top:14px}
+.bl-bas-t>p{font-size:clamp(15px,1.2vw,18px);line-height:1.5;color:#4a433f;margin-top:16px;max-width:560px}
+.bl-meta{display:inline-block;margin-top:18px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#7a706a}
+.bl-bas-g{margin:0;border-radius:14px;overflow:hidden;aspect-ratio:1/1.08;max-height:520px}
+.bl-bas-g img{width:100%;height:100%;object-fit:cover}
+.bl-yazi{padding:48px 0 30px;background:#fbf8f4}
+.bl-yazi-in{display:grid;grid-template-columns:220px minmax(0,1fr);gap:56px;align-items:start}
+.bl-icd{position:sticky;top:100px;border-top:1px solid #e3dad1;padding-top:14px}
+.bl-icd span{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#7a706a}
+.bl-icd ol{list-style:none;margin:12px 0 0;padding:0;counter-reset:i}
+.bl-icd li{counter-increment:i}
+.bl-icd a{display:block;padding:7px 0;font-size:14px;color:#3d3633}
+.bl-icd a::before{content:"0" counter(i);color:var(--green);font-weight:600;margin-right:10px}
+.bl-icd a:hover{color:var(--green)}
+.bl-govde{max-width:760px}
+.bl-bol{border-top:1px solid #e3dad1}
+.bl-bol:last-of-type{border-bottom:1px solid #e3dad1}
+.bl-bol summary{display:flex;align-items:center;gap:18px;padding:20px 0;cursor:pointer;list-style:none}
+.bl-bol summary::-webkit-details-marker{display:none}
+.bl-bol summary b{font:400 15px/1 var(--serif);color:var(--green);min-width:28px}
+.bl-bol summary h2{font:400 clamp(22px,2vw,30px)/1.15 var(--serif);color:#1f1a17;flex:1;margin:0}
+.bl-bol summary i{position:relative;width:34px;height:34px;border:1px solid #d9cfc5;border-radius:50%;flex:none}
+.bl-bol summary i::before,.bl-bol summary i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.4px;background:#3d3633;transform:translate(-50%,-50%)}
+.bl-bol summary i::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .3s}
+.bl-bol[open] summary i::after{transform:translate(-50%,-50%) rotate(0)}
+.bl-bol-m{padding:0 0 24px 46px}
+.bl-bol-m p{font-size:17px;line-height:1.75;color:#3d3633}
+.bl-diger{padding:20px 0 56px;background:#fbf8f4}
+.bl-diger h2{font:400 clamp(24px,2.2vw,32px)/1.1 var(--serif);color:#1f1a17}
+.bl-dg-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:18px;max-width:1000px}
+.bl-dg{display:grid;grid-template-columns:120px minmax(0,1fr);gap:18px;align-items:center;background:#fff;border:1px solid #ebe3da;border-radius:10px;overflow:hidden;padding-right:18px}
+.bl-dg img{width:120px;height:120px;object-fit:cover}
+.bl-dg small{display:block;font-size:10.5px;letter-spacing:.2em;color:#7a706a}
+.bl-dg b{display:block;font:400 20px/1.2 var(--serif);color:#1f1a17;margin-top:6px}
+@media (max-width:1023px){
+  .bl-bas-in{grid-template-columns:1fr;gap:26px}
+  .bl-bas-g{aspect-ratio:16/10;max-height:none}
+  .bl-yazi-in{grid-template-columns:1fr;gap:20px}
+  .bl-icd{position:static}
+}
+@media (max-width:767px){
+  .bl-bas{padding:28px 0 24px}
+  .bl-bol-m{padding-left:0}
+  .bl-bol-m p{font-size:15.5px}
+  .bl-dg-g{grid-template-columns:1fr}
+  .bl-dg{grid-template-columns:96px minmax(0,1fr)}
+  .bl-dg img{width:96px;height:96px}
+}
+
+/* ===== İletişim formu (6 Eki): bölüme göre çoklu hizmet seçimi ===== */
+.cf-hiz{border:0;padding:0;margin:0 0 14px;min-width:0}
+.cf-hiz[hidden]{display:none}
+.cf-hiz legend{font-size:13px;font-weight:500;padding:0;margin-bottom:8px}
+.cf-hiz legend small{font-weight:400;color:#7a706a;margin-left:6px}
+.cf-grup[hidden]{display:none}
+.cf-kat{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#7a706a;margin:12px 0 6px}
+.cf-grup .cf-kat:first-child{margin-top:2px}
+.cf-cipler{display:flex;flex-wrap:wrap;gap:8px}
+.cf-hiz .cf-cip{position:relative;display:inline-block;cursor:pointer;font-weight:400}
+.cf-cip input{position:absolute;opacity:0;width:1px;height:1px}
+.cf-cip span{display:inline-block;padding:8px 13px;border:1px solid #d9cfc5;border-radius:999px;font-size:13px;line-height:1.2;color:#3d3633;background:#fff;transition:background .2s,border-color .2s,color .2s}
+.cf-cip input:checked+span{background:var(--green);border-color:var(--green);color:#fff}
+.cf-cip input:focus-visible+span{outline:2px solid var(--green);outline-offset:2px}
+.cf-grup[data-bolum="Beauty & Wellness"]{max-height:300px;overflow:auto;padding-right:6px}
 /* <<< iletisim */
 
 /* ---------- hareket: yalnız html.hk (betik çalışıyor, hareket azaltılmamış) ---------- */

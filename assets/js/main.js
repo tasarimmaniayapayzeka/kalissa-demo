@@ -43,12 +43,20 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(cards.length)apply();
 
   const form=document.querySelector('[data-contact-form]');
+  // İletişim formu: bölüm seçilince o bölümün hizmetleri çoklu seçim olarak açılır (6 Eki)
+  const hizKut=form?.querySelector('[data-hiz]');
+  form?.querySelector('[name="bolum"]')?.addEventListener('change',e=>{
+    if(!hizKut)return;const v=e.target.value;hizKut.hidden=!v;
+    hizKut.querySelectorAll('[data-bolum]').forEach(g=>{const on=g.dataset.bolum===v;g.hidden=!on;if(!on)g.querySelectorAll('input').forEach(i=>{i.checked=false})});
+  });
+  // Blog detay: içindekilerden bir başlığa gidilince kapalı bölüm açılır
+  document.querySelectorAll('.bl-icd a').forEach(a=>a.addEventListener('click',()=>{const t=document.querySelector(a.getAttribute('href'));if(t&&t.tagName==='DETAILS')t.open=true}));
   form?.addEventListener('submit',event=>{
     event.preventDefault();
     if(!form.reportValidity())return;
     const data=new FormData(form),kind=data.get('bolum');
     const phone=kind==='Beauty & Wellness'?'905415432598':'902163488881';
-    const msg=`Merhaba Kalissa, web sitenizden yazıyorum.\nAd: ${data.get('ad')}\nBölüm: ${kind}\nHizmet: ${data.get('hizmet')||'Belirtilmedi'}\nMesaj: ${data.get('mesaj')}`;
+    const msg=`Merhaba Kalissa, web sitenizden yazıyorum.\nAd: ${data.get('ad')}\nBölüm: ${kind}\nHizmet: ${data.getAll('hizmet').join(', ')||'Belirtilmedi'}\nMesaj: ${data.get('mesaj')}`;
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`,'_blank','noopener,noreferrer');
   });
   // Fit detay: sayfa içi gezinmede görünen bölümün sekmesi işaretlenir
