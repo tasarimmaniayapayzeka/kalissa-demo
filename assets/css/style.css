@@ -3785,6 +3785,23 @@ html:not(.js) .kar-k{position:relative;left:auto;flex:none;margin:0;transform:no
 }
 .hz3--fz .hz3-k:hover b,.hz3--fz .hz3-tum:hover{color:#1b4230}
 .hz3--fz .hz3-ok:hover:not(:disabled){background:#1b4230;border-color:#1b4230}
+
+/* Hizmetler 2 (6 Eki, kullanıcı isteği): sekmeler yerine ana sayfadaki Fit/Beauty bandı; tıklanınca sekme gibi çalışır */
+.hz-bands{margin-top:26px}
+.hz-bands .band{position:relative;width:100%;padding:0;border:0;font:inherit;cursor:pointer}
+.hz-bands .band.is-on .band-bg{opacity:1;transform:none}
+.hz-bands .band.is-on .band-sub i{width:15px;opacity:1}
+.hz-bands .band.is-on::before{content:"";position:absolute;left:50%;bottom:0;z-index:3;width:90px;height:3px;border-radius:2px 2px 0 0;translate:-50% 0;background:#f4efe8;transition:width .5s var(--ease)}
+.hz-bands .band--beauty.is-on::before{background:#9a6a5c}
+.hz-bands .band.is-on:hover::before{width:140px}
+@media (hover:hover) and (pointer:fine) and (min-width:1101px){
+  .hz-bands{transition:grid-template-columns .8s cubic-bezier(.22,.61,.36,1)}
+  .hz-bands:has(.band--fit.is-on){grid-template-columns:54% 1fr}
+  .hz-bands:has(.band--beauty.is-on){grid-template-columns:46% 1fr}
+  .hz-bands:has(.band--fit:hover){grid-template-columns:57% 1fr}
+  .hz-bands:has(.band--beauty:hover){grid-template-columns:43% 1fr}
+}
+.p-hz2 .hz1{padding-top:4px}
 /* <<< iletisim */
 
 /* ---------- hareket: yalnız html.hk (betik çalışıyor, hareket azaltılmamış) ---------- */
