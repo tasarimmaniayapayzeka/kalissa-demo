@@ -2898,6 +2898,12 @@ html.js .fd-dv-bt:hover{background:var(--fd-ink);color:#fff}
   .fd-tb-son{margin-top:18px;padding-top:14px}
   .fd-ak{margin-top:26px}
 }
+
+/* WhatsApp kartında hafif Kalissa Fit logosu (6 Eki, kullanıcı isteği; tüm ekranlarda) */
+.fd-sk-logo{display:block;width:min(80%,230px);height:auto;margin:auto 0;opacity:.2;pointer-events:none}
+.fd-sk--wa .fd-sk-logo+h3{margin-top:0}
+@media (max-width:1199px){.fd-sk-logo{margin:26px 0 22px}}
+@media (max-width:767px){.fd-sk-logo{width:min(64%,210px);margin:22px 0 20px}}
 /* <<< fit-detay */
 
 /* ---------- hareket: yalnız html.hk (betik çalışıyor, hareket azaltılmamış) ---------- */
