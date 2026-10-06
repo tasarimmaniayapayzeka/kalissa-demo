@@ -3936,6 +3936,17 @@ section:hover>.wrap .a2-eb2::after,.a2-bas:hover .a2-eb2::after{width:96px}
   .a2-g5-in{padding:18px}
 }
 @media (prefers-reduced-motion:reduce){.a2-yari,.a2-g img{transition:none}}
+
+/* sol boşlukta dikey işaret (Hizmetler 5'teki gibi; yalnız geniş masaüstü): 01 Fit, 02 Beauty */
+.p-ana2 .a2-bt{position:relative;isolation:isolate}
+@media (min-width:1500px){
+  .p-ana2 .hz3-yan{--yc:#9a6a5c;position:absolute;z-index:1;left:calc(((100% - 1440px) / 2 + 80px) / 2);top:50%;translate:-50% -50%;display:flex;flex-direction:column;align-items:center;gap:16px;color:var(--yc);pointer-events:none}
+  .p-ana2 .a2-fit .hz3-yan{--yc:#f4efe8}
+  .p-ana2 .hz3-yan b{-webkit-text-stroke:1.4px var(--yc)}
+  .p-ana2 section:hover>.hz3-yan b{opacity:.95;color:var(--yc)}
+  .p-ana2 section:hover>.hz3-yan i{height:110px;opacity:.6}
+  .p-ana2 section:hover>.hz3-yan span{letter-spacing:.5em;opacity:1}
+}
 /* <<< iletisim */
 
 /* ---------- hareket: yalnız html.hk (betik çalışıyor, hareket azaltılmamış) ---------- */
