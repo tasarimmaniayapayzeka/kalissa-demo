@@ -3832,20 +3832,33 @@ html:not(.js) .kar-k{position:relative;left:auto;flex:none;margin:0;transform:no
   .a2-hero:has(.a2-yari:hover) .a2-yari:not(:hover){filter:saturate(.7) brightness(.9)}
   .a2-hero:has(.a2-yari:hover) .a2-yari:not(:hover) .a2-p{opacity:0}
 }
-/* 2) tanıtım cümlesi + rakamlar */
-.a2-soz{padding:clamp(48px,6vw,90px) 0 clamp(36px,4vw,60px)}
-.a2-soz-t{max-width:1040px;font:400 clamp(26px,3vw,44px)/1.22 var(--serif);letter-spacing:-.015em;color:#1d1916}
+/* 2) tanıtım cümlesi + rakamlar (6 Eki, 2. hal; ilk hal beğenilmedi): adaçayından pudraya zemin + doku,
+   cümle içinde küçük görseller, marka renkli rakam kartları */
+.a2-soz{position:relative;overflow:hidden;isolation:isolate;padding:clamp(52px,6vw,96px) 0 clamp(44px,5vw,80px);background:linear-gradient(90deg,#e4eadc 0%,#f5f1ea 50%,#f3e2db 100%)}
+.a2-soz::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.6;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .4 0 0 0 0 .32 0 0 0 0 .26 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.a2-soz-t{max-width:1080px;font:400 clamp(26px,3vw,46px)/1.28 var(--serif);letter-spacing:-.015em;color:#1d1916}
 .a2-soz-t em{font-style:italic;color:#1b4230}
-.a2-soz-t em+em{color:#9a6a5c}
-.a2-say{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));list-style:none;margin:clamp(30px,3.6vw,52px) 0 0;padding:0;border-top:1px solid #ddd5cc}
-.a2-say li{position:relative;padding:22px 18px 4px;border-left:1px solid #ddd5cc;transition:background-color .4s}
-.a2-say li:first-child{border-left:0;padding-left:0}
-.a2-say li::before{content:"";position:absolute;left:0;right:100%;top:-1px;height:2px;background:#1b4230;transition:right .65s var(--ease)}
-.a2-say li:hover::before{right:0}
-.a2-say b{display:block;font:400 clamp(36px,3.6vw,54px)/1 var(--serif);color:#1d1916;font-variant-numeric:tabular-nums;transition:color .35s,transform .5s var(--ease)}
-.a2-say b small{font-size:.42em;margin-left:4px;color:#5f5752}
-.a2-say li>span{display:block;margin-top:8px;font-size:13.5px;color:#5f5752}
-.a2-say li:hover b{color:#1b4230;transform:translateY(-3px)}
+.a2-soz-t .a2-em2{color:#9a6a5c}
+.a2-hap{display:inline-block;vertical-align:-.12em;width:2.1em;height:.92em;margin:0 .16em 0 .04em;border-radius:999px;overflow:hidden;box-shadow:0 10px 20px -12px rgba(40,30,20,.55);transition:width .7s var(--ease)}
+.a2-hap img{width:100%;height:100%;object-fit:cover}
+.a2-soz-t:hover .a2-hap{width:3.1em}
+.a2-say{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;list-style:none;margin:clamp(32px,3.6vw,54px) 0 0;padding:0}
+.a2-say li{position:relative;padding:24px 22px 22px;border:1px solid rgba(60,40,30,.07);border-radius:16px;transition:transform .55s var(--ease),box-shadow .55s}
+.a2-say li.t-fit{background:#dbe3d2}
+.a2-say li.t-bt{background:#efd9cf}
+.a2-say li.t-notr{background:#fffdf9}
+.a2-say li:hover{transform:translateY(-6px);box-shadow:0 26px 46px -30px rgba(40,30,20,.55)}
+.a2-say-ic{position:absolute;right:16px;top:16px;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.65);color:#1b4230;transition:transform .6s var(--ease),background-color .4s,color .4s}
+.a2-say-ic .ic{width:18px;height:18px}
+.t-bt .a2-say-ic{color:#9a6a5c}
+.t-notr .a2-say-ic{background:#efe8df}
+.a2-say li:hover .a2-say-ic{transform:rotate(-12deg) scale(1.08);background:#1b4230;color:#fff}
+.a2-say li.t-bt:hover .a2-say-ic{background:#9a6a5c}
+.a2-say b{display:block;margin-top:6px;font:400 clamp(38px,3.6vw,56px)/1 var(--serif);color:#1d1916;font-variant-numeric:tabular-nums;transition:color .35s}
+.a2-say b small{font-size:.4em;margin-left:4px;color:#5f5752}
+.a2-say-t{display:block;margin-top:10px;font-size:13.5px;color:#4f4743}
+.a2-say li.t-fit:hover b{color:#1b4230}
+.a2-say li.t-bt:hover b{color:#9a6a5c}
 /* 3) Fit: koyu yeşil zeminde karusel */
 .a2-fit{padding:clamp(48px,5vw,80px) 0 clamp(40px,4vw,64px);background:#1b4230;color:#f4efe8;overflow:hidden;position:relative;isolation:isolate}
 .a2-fit::before{content:"";position:absolute;z-index:-1;top:50%;left:0;height:130%;aspect-ratio:151.48/162.83;translate:-40% -50%;background:rgba(255,255,255,.05);-webkit-mask:url(../images/logo/kalissa-ss-ikon-siyah.svg) center/contain no-repeat;mask:url(../images/logo/kalissa-ss-ikon-siyah.svg) center/contain no-repeat}
@@ -3909,18 +3922,16 @@ section:hover>.wrap .a2-eb2::after,.a2-bas:hover .a2-eb2::after{width:96px}
 .p-ana2 .ft .ft-sep{background:rgba(255,255,255,.26)}
 .p-ana2 .ft .socials a{color:#fff}
 @media (max-width:1023px){
+  .a2-say{grid-template-columns:repeat(3,minmax(0,1fr))}
   .a2-hero{flex-direction:column;height:auto}
   .a2-yari{min-height:62vh}
-  .a2-say{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:10px}
-  .a2-say li:nth-child(4){border-left:0;padding-left:0}
   .a2-blog-g3{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width:767px){
   .a2-yari{min-height:480px}
-  .a2-say{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .a2-say li:nth-child(odd){border-left:0;padding-left:0}
-  .a2-say li:nth-child(4){border-left:1px solid #ddd5cc;padding-left:18px}
-  .a2-say li:last-child{grid-column:1/-1;border-left:0;padding-left:0}
+  .a2-say{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .a2-say li:last-child{grid-column:1/-1}
+  .a2-say li{padding:20px 18px 18px}
   .a2-blog-g3{grid-template-columns:1fr}
   .a2-g5-in{padding:18px}
 }
