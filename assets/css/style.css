@@ -3437,15 +3437,6 @@ html.js .fd-dv-bt:hover{background:var(--fd-ink);color:#fff}
 .bt3-hero{position:relative;overflow:hidden;isolation:isolate}
 .bt3-mono{position:absolute;z-index:-1;top:50%;left:0;height:175%;aspect-ratio:151.48/162.83;translate:-36% -50%;background:rgba(138,92,78,.12);-webkit-mask:url(../images/logo/kalissa-ss-ikon-siyah.svg) center/contain no-repeat;mask:url(../images/logo/kalissa-ss-ikon-siyah.svg) center/contain no-repeat;pointer-events:none}
 @media (max-width:767px){.bt3-mono{height:120%;translate:-46% -50%}}
-/* Fit/Beauty menüsü 1199 px altında açılır panel: alt menü düz liste olur */
-@media (max-width:1199px){
-  .hdr--fit .hdr-alt{display:block}
-  .hdr--fit .hdr-alt::after,.hdr--fit .hdr-alt>a::before{display:none}
-  .hdr--fit .hdr-alt>a{display:block;padding-right:0!important}
-  .hdr--fit .hdr-alt-m{position:static;opacity:1;visibility:visible;transform:none;min-width:0;padding:4px 0 10px 14px;border:0;border-radius:0;background:none;box-shadow:none;transition:none}
-  .hdr--fit .hdr-nav .hdr-alt-m a{padding:10px 0;font-size:14px;border-bottom:0;border-radius:0;color:#5a524e}
-  .hdr--fit .hdr-nav .hdr-alt-m a.is-aktif{background:none;color:var(--green);font-weight:600}
-}
 
 /* Beauty 4 (6 Eki, kullanıcı isteği): hizmetler 3B karusel */
 .bt4-hiz{overflow:hidden;padding-bottom:44px}
@@ -3508,6 +3499,18 @@ html:not(.js) .kar-k{position:relative;left:auto;flex:none;margin:0;transform:no
   .ka-oz li.is-vurgu{transform:translateY(-3px)}
   .ka-oz li.is-vurgu .ka-oz-ic{background:var(--green);color:#fff;transform:rotate(-8deg) scale(1.06)}
 }
+
+/* Kategori sayfaları (6 Eki): A varsayılan, B 2. sürüm; menüde bölüm açılır menüsünde "<Kategori> 1 · 2" */
+.hdr-alt-ayrac{display:block;margin:6px 8px 2px;padding-top:9px;border-top:1px solid #e6ddd3;font:600 10px/1.2 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:#8a7f78;white-space:nowrap}
+@media (max-width:1023px){.hdr-alt-ayrac{margin:6px 0 0;padding-top:8px}}
+.ka-adet{font-size:14px;color:#5f5752;padding-bottom:6px}
+/* Fit kategorisi: pembe yerine adaçayı yeşili */
+.p-kfit .bt-yol{background:#e5e9dc}
+.p-kfit .bt-adim-ic,.p-kfit .ka-oz-ic{background:#d6dfcc;color:#1b4230}
+.p-kfit .bt-adim-a:hover b{color:#1b4230}
+.p-kfit .bt-adim h3 span{background-image:linear-gradient(#1b4230,#1b4230)}
+.p-kfit .ka-filtre button span{background:#d6dfcc;color:#1b4230}
+.p-kfit .bt-adim li{border-left-color:rgba(27,66,48,.18)}
 
 /* ===== Fit (6 Eki, kullanıcı isteği): dönen rakamlar, özet şeridi ve ikonlu maddelerde hareket; Fit 2 karusel ===== */
 /* 01 · 02 · 03: kilometre sayacı (görününce bir tur, üzerine gelince bir tur daha) */
