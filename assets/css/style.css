@@ -3120,7 +3120,7 @@ html.js .fd-dv-bt:hover{background:var(--fd-ink);color:#fff}
 
 /* sürüm 2 */
 .ab2-hero{position:relative;height:clamp(260px,23vw,380px);overflow:hidden;background:#1d1712;color:#fff}
-.ab2-hero-g{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.ab2-hero-g{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 2%}
 .ab2-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,12,9,.82) 0%,rgba(16,12,9,.55) 28%,rgba(16,12,9,.12) 50%,rgba(16,12,9,0) 62%)}
 .ab2-hero-in{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center}
 .ab2-hero h1{font:400 clamp(36px,4.1vw,62px)/.98 var(--serif);letter-spacing:-.022em;color:#fbf7f2}
@@ -3196,9 +3196,11 @@ html.js .fd-dv-bt:hover{background:var(--fd-ink);color:#fff}
   .ab2-cta p{grid-column:auto}
 }
 @media (max-width:767px){
-  .ab2-hero{height:300px}
-  .ab2-hero::after{background:linear-gradient(90deg,rgba(16,12,9,.8) 0%,rgba(16,12,9,.45) 55%,rgba(16,12,9,.1) 100%)}
-  .ab2-hero-g{object-position:68% 30%}
+  /* mobil: kişiler üstte, yazı altta (yüzün üstüne yazı binmesin) */
+  .ab2-hero{height:460px}
+  .ab2-hero::after{background:linear-gradient(0deg,rgba(16,12,9,.92) 0%,rgba(16,12,9,.72) 38%,rgba(16,12,9,0) 64%)}
+  .ab2-hero-g{object-position:80% 0}
+  .ab2-hero-in{justify-content:flex-end;padding-bottom:28px}
   .ab2-hero p br,.ab2-cta p br,.ab3-hero p br,.ab3-cta p br{display:none}
   .ab2-oz{grid-template-columns:1fr;gap:18px}
   .ab2-oz li{border-left:0;padding:0}
@@ -3211,6 +3213,34 @@ html.js .fd-dv-bt:hover{background:var(--fd-ink);color:#fff}
   .hk-surum{margin:20px auto 24px}
   .hk-surum span{display:none}
 }
+
+/* özellik maddeleri (6 Eki): görününce sırayla gelir; üzerine gelince kart açılır, ikon yeniden çizilir, başlığın altı çizilir */
+@keyframes hk-ciz{from{stroke-dashoffset:var(--uz,90)}to{stroke-dashoffset:0}}
+.ab-oz-ic .ic *{stroke-dasharray:var(--uz,90);stroke-dashoffset:0}
+.ab2-oz li,.ab3-oz li{position:relative;transition:transform .55s var(--ease),background-color .45s,box-shadow .55s var(--ease),border-color .4s}
+.ab2-oz li::before,.ab3-oz li::before{content:"";position:absolute;inset:-14px -10px;border-radius:14px;background:#fffdf9;box-shadow:0 22px 46px -30px rgba(60,40,28,.55),0 0 0 1px rgba(27,58,43,.08);opacity:0;transform:scale(.96);transition:opacity .45s,transform .55s var(--ease);z-index:-1}
+.ab2-oz li,.ab3-oz li{z-index:0}
+.ab2-oz li:hover,.ab3-oz li:hover{transform:translateY(-4px)}
+.ab2-oz li:hover::before,.ab3-oz li:hover::before{opacity:1;transform:none}
+.ab2-oz li:hover+li,.ab3-oz li:hover+li{border-left-color:transparent}
+.ab2-oz li:hover,.ab3-oz li:hover{border-left-color:transparent}
+.ab-oz-ic{display:grid;place-items:center;flex:none;transition:color .4s,transform .6s var(--ease)}
+.ab2-oz li:hover .ab-oz-ic{color:#1b3a2b;transform:rotate(-8deg) scale(1.08)}
+.ab2-oz li:hover .ab-oz-ic .ic *,.ab3-oz li:hover .ab-oz-ic .ic *{animation:hk-ciz 1.1s var(--ease) both}
+.ab2-oz h3 span,.ab3-oz h3 span{background:linear-gradient(#1b3a2b,#1b3a2b) 0 100%/0 1px no-repeat;padding-bottom:3px;transition:background-size .6s var(--ease),color .4s}
+.ab2-oz li:hover h3 span,.ab3-oz li:hover h3 span{background-size:100% 1px;color:#1b3a2b}
+.ab2-oz p,.ab3-oz p{transition:color .4s,transform .55s var(--ease)}
+.ab2-oz li:hover p,.ab3-oz li:hover p{color:#2a2523}
+/* sürüm 3: dinlenirken tasarımdaki gibi sade; üzerine gelince ikon sağdan süzülür, çizgi uzar */
+.ab3-ic{position:absolute;right:30px;top:2px;width:40px;height:40px;border-radius:50%;background:#1b3a2b;color:#fff;opacity:0;transform:translate(-10px,6px) scale(.8)}
+.ab3-ic .ic{width:20px;height:20px}
+.ab3-oz li:first-child .ab3-ic{right:30px}
+.ab3-oz li:hover .ab3-ic{opacity:1;transform:none}
+.ab3-oz li:hover .ab3-cizgi{width:72px;background:#9a6a5c}
+.ab3-oz li:hover h3{transform:translateX(4px)}
+.ab3-oz h3{transition:transform .55s var(--ease)}
+@media (hover:none){.ab2-oz li:active,.ab3-oz li:active{transform:translateY(-2px)}}
+@media (prefers-reduced-motion:reduce){.ab2-oz li,.ab3-oz li,.ab-oz-ic,.ab3-ic{transition:none}.ab-oz-ic .ic *{animation:none!important}}
 /* <<< iletisim */
 
 /* ---------- hareket: yalnız html.hk (betik çalışıyor, hareket azaltılmamış) ---------- */
