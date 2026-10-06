@@ -177,4 +177,12 @@ document.addEventListener('DOMContentLoaded',()=>{
     sahne.addEventListener('dragstart',e=>e.preventDefault());
     ciz();k.classList.add('is-hazir');
   });
+  // Dokunmatik ekranda üzerine gelme yok: kaydırırken ekranın ortasına gelen madde kendiliğinden öne çıkar (6 Eki)
+  if(matchMedia('(hover: none)').matches&&'IntersectionObserver' in window){
+    document.querySelectorAll('.bt-adim,.ab2-oz,.ab3-oz ul,.p-hk1 .feats,.ka-oz').forEach(g=>{
+      const og=[...g.children];
+      const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)og.forEach(o=>o.classList.toggle('is-vurgu',o===e.target))})},{rootMargin:'-42% 0px -42% 0px'});
+      og.forEach(o=>io.observe(o));
+    });
+  }
 });
