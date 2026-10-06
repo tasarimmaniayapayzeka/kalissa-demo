@@ -3802,6 +3802,129 @@ html:not(.js) .kar-k{position:relative;left:auto;flex:none;margin:0;transform:no
   .hz-bands:has(.band--beauty:hover){grid-template-columns:43% 1fr}
 }
 .p-hz2 .hz1{padding-top:4px}
+
+/* ===== Ana sayfa 2 (6 Eki): "İki kapı" ===== */
+.p-ana2{--fz-yesil:#1b4230;--fz-yesil-k:#143526;--fz-cizgi:#e3e5db;--fz-sage:#e5e9dc;--fz-ink:#0e0f0d;--fz-gri:#5b5e56;--fz-f:'Urbanist','Gontserrat','Montserrat',Arial,sans-serif}
+.p-ana2 main{background:#f8f5f0}
+.a2-gizli{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* 1) iki kapı: üzerine gelinen taraf genişler, öbürü geri çekilir */
+.a2-hero{position:relative;display:flex;height:clamp(560px,84vh,860px);overflow:hidden;background:#1b4230}
+.a2-yari{position:relative;display:flex;align-items:flex-end;flex:1 1 0;min-width:0;overflow:hidden;color:#fff;transition:flex-grow .9s cubic-bezier(.22,.61,.36,1),filter .6s}
+.a2-g{position:absolute;inset:0}
+.a2-g img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
+.a2-yari--fit .a2-g img{object-position:50% 30%}
+.a2-yari--bt .a2-g img{object-position:58% 40%}
+.a2-g::after{content:"";position:absolute;inset:0;transition:opacity .6s}
+.a2-yari--fit .a2-g::after{background:linear-gradient(180deg,rgba(15,35,26,.1) 0%,rgba(15,35,26,.35) 45%,rgba(15,35,26,.9) 100%)}
+.a2-yari--bt{color:#2a1f1c}
+.a2-yari--bt .a2-g::after{background:linear-gradient(180deg,rgba(243,229,222,0) 0%,rgba(243,229,222,.4) 45%,rgba(243,229,222,.95) 100%)}
+.a2-ic{position:relative;z-index:2;display:flex;flex-direction:column;gap:14px;width:100%;max-width:640px;padding:0 clamp(24px,5vw,84px) clamp(36px,6vh,64px)}
+.a2-eb{font:600 11px/1.3 var(--sans);letter-spacing:.28em;opacity:.85}
+.a2-h{font:400 clamp(44px,5.6vw,92px)/.95 var(--serif);letter-spacing:-.03em}
+.a2-p{max-width:420px;font-size:clamp(14px,1.1vw,17px);line-height:1.5;opacity:.92;transition:opacity .5s}
+.a2-btn{display:inline-flex;align-items:center;gap:12px;width:fit-content;height:48px;margin-top:6px;padding:0 26px;border:1px solid currentColor;border-radius:999px;font-weight:600;font-size:14px;white-space:nowrap;transition:background .35s,color .35s,border-color .35s,gap .4s var(--ease)}
+.a2-btn .ic{width:15px;height:15px}
+.a2-yari--fit:hover .a2-btn{background:#fff;color:#1b4230;border-color:#fff;gap:18px}
+.a2-yari--bt:hover .a2-btn{background:#9a6a5c;color:#fff;border-color:#9a6a5c;gap:18px}
+.a2-yari:hover .a2-g img{transform:scale(1.05)}
+@media (hover:hover) and (min-width:1024px){
+  .a2-hero:has(.a2-yari--fit:hover) .a2-yari--fit,.a2-hero:has(.a2-yari--bt:hover) .a2-yari--bt{flex-grow:1.6}
+  .a2-hero:has(.a2-yari:hover) .a2-yari:not(:hover){filter:saturate(.7) brightness(.9)}
+  .a2-hero:has(.a2-yari:hover) .a2-yari:not(:hover) .a2-p{opacity:0}
+}
+/* 2) tanıtım cümlesi + rakamlar */
+.a2-soz{padding:clamp(48px,6vw,90px) 0 clamp(36px,4vw,60px)}
+.a2-soz-t{max-width:1040px;font:400 clamp(26px,3vw,44px)/1.22 var(--serif);letter-spacing:-.015em;color:#1d1916}
+.a2-soz-t em{font-style:italic;color:#1b4230}
+.a2-soz-t em+em{color:#9a6a5c}
+.a2-say{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));list-style:none;margin:clamp(30px,3.6vw,52px) 0 0;padding:0;border-top:1px solid #ddd5cc}
+.a2-say li{position:relative;padding:22px 18px 4px;border-left:1px solid #ddd5cc;transition:background-color .4s}
+.a2-say li:first-child{border-left:0;padding-left:0}
+.a2-say li::before{content:"";position:absolute;left:0;right:100%;top:-1px;height:2px;background:#1b4230;transition:right .65s var(--ease)}
+.a2-say li:hover::before{right:0}
+.a2-say b{display:block;font:400 clamp(36px,3.6vw,54px)/1 var(--serif);color:#1d1916;font-variant-numeric:tabular-nums;transition:color .35s,transform .5s var(--ease)}
+.a2-say b small{font-size:.42em;margin-left:4px;color:#5f5752}
+.a2-say li>span{display:block;margin-top:8px;font-size:13.5px;color:#5f5752}
+.a2-say li:hover b{color:#1b4230;transform:translateY(-3px)}
+/* 3) Fit: koyu yeşil zeminde karusel */
+.a2-fit{padding:clamp(48px,5vw,80px) 0 clamp(40px,4vw,64px);background:#1b4230;color:#f4efe8;overflow:hidden;position:relative;isolation:isolate}
+.a2-fit::before{content:"";position:absolute;z-index:-1;top:50%;left:0;height:130%;aspect-ratio:151.48/162.83;translate:-40% -50%;background:rgba(255,255,255,.05);-webkit-mask:url(../images/logo/kalissa-ss-ikon-siyah.svg) center/contain no-repeat;mask:url(../images/logo/kalissa-ss-ikon-siyah.svg) center/contain no-repeat}
+.a2-bas{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.a2-eb2{display:flex;align-items:center;gap:16px;font:600 11px/1 var(--sans);letter-spacing:.3em;opacity:.8}
+.a2-eb2::after{content:"";width:56px;height:1px;background:currentColor;transition:width .6s var(--ease)}
+section:hover>.wrap .a2-eb2::after,.a2-bas:hover .a2-eb2::after{width:96px}
+.a2-bas h2,.a2-adim-bas h2{font:400 clamp(32px,3.6vw,54px)/1.05 var(--serif);letter-spacing:-.02em;margin-top:12px}
+.a2-tum{display:inline-flex;align-items:center;gap:10px;padding-bottom:3px;border-bottom:1px solid currentColor;font-size:14px;font-weight:500;transition:gap .35s var(--ease),opacity .3s}
+.a2-tum .ic{width:14px;height:14px}
+.a2-tum:hover{gap:16px}
+.kar--koyu{margin-top:34px}
+.kar--koyu .kar-ok{background:transparent;border-color:rgba(255,255,255,.45);color:#fff}
+.kar--koyu .kar-ok:hover{background:#fff;border-color:#fff;color:#1b4230}
+.kar--koyu .kar-nok button{background:rgba(255,255,255,.3)}
+.kar--koyu .kar-nok button.is-on{background:#fff}
+.kar--koyu .kar-say{color:rgba(255,255,255,.65)}
+.kar--koyu .kar-say b{color:#fff}
+.kar--koyu .kar-k{box-shadow:0 34px 60px -30px rgba(0,0,0,.65)}
+/* 4) Beauty şeridi: hizmetler sayfasındaki bileşen */
+.a2-bt{padding:clamp(44px,4.6vw,70px) 0}
+/* 5) adımlar */
+.a2-adim{padding-top:clamp(48px,5vw,80px)}
+.a2-adim-bas{color:#1d1916}
+.a2-adim .fz-adim{padding-top:clamp(20px,2vw,30px)}
+.a2-adim .fz-adim-g b{color:#1d1916}
+/* 6) Google şeridi */
+.a2-g5{padding:6px 0 clamp(40px,4vw,60px)}
+.a2-g5-in{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:22px 28px;border:1px solid #e3dad1;border-radius:10px;background:#fffdf9;transition:box-shadow .45s,transform .45s var(--ease)}
+.a2-g5-in:hover{box-shadow:0 22px 44px -32px rgba(40,30,20,.45);transform:translateY(-2px)}
+.a2-g5-p{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.a2-g5-p strong{font:400 44px/1 var(--serif);color:#1d1916}
+.a2-g5-p>span:last-child{font-size:14px;color:#5f5752}
+.a2-yildiz{display:inline-flex;gap:2px;color:#c69a3e;font-size:18px}
+.a2-yildiz i{font-style:normal;display:inline-block;transition:transform .5s var(--ease) calc(var(--i) * .06s)}
+.a2-g5-in:hover .a2-yildiz i{transform:translateY(-4px) rotate(-12deg)}
+.a2-g5-l{display:flex;gap:22px;flex-wrap:wrap}
+.a2-g5-l a{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:#1d1916;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;padding-bottom:3px;transition:background-size .5s var(--ease),color .3s}
+.a2-g5-l a .ic{width:13px;height:13px;transition:transform .4s var(--ease)}
+.a2-g5-l a:hover{background-size:100% 1px;color:#1b4230}
+.a2-g5-l a:hover .ic{transform:translateX(4px)}
+.a2-g5-yaz{color:#9a6a5c!important}
+/* 7) blog */
+.a2-blog{padding:clamp(20px,2vw,30px) 0 clamp(56px,5vw,84px)}
+.a2-bas--acik{color:#1d1916}
+.a2-blog-g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:28px}
+.a2-blog-k{display:flex;flex-direction:column;color:#1d1916}
+.a2-blog-g{display:block;aspect-ratio:4/3;overflow:hidden;border-radius:8px;background:#e9e1d8}
+.a2-blog-g img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.a2-blog-k small{margin-top:14px;font:600 10.5px/1 var(--sans);letter-spacing:.22em;color:#7a706a}
+.a2-blog-k b{margin-top:8px;font:400 clamp(20px,1.7vw,26px)/1.2 var(--serif);background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;width:fit-content;transition:background-size .6s var(--ease),color .3s}
+.a2-blog-k i{display:inline-flex;align-items:center;gap:8px;margin-top:10px;font-style:normal;font-weight:600;font-size:13.5px}
+.a2-blog-k i .ic{width:13px;height:13px;transition:transform .4s var(--ease)}
+.a2-blog-k:hover .a2-blog-g img{transform:scale(1.06)}
+.a2-blog-k:hover b{background-size:100% 1px;color:#1b4230}
+.a2-blog-k:hover i .ic{transform:translateX(4px)}
+/* yeşil footer */
+.p-ana2 .ft{background:#1b3a2b;color:#f4efe8;border-top:0}
+.p-ana2 .ft .logo-img{filter:brightness(0) invert(1)}
+.p-ana2 .ft .logo-sub,.p-ana2 .ft p,.p-ana2 .ft a,.p-ana2 .ft .lang{color:#f1ece4}
+.p-ana2 .ft .ft-sep{background:rgba(255,255,255,.26)}
+.p-ana2 .ft .socials a{color:#fff}
+@media (max-width:1023px){
+  .a2-hero{flex-direction:column;height:auto}
+  .a2-yari{min-height:62vh}
+  .a2-say{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:10px}
+  .a2-say li:nth-child(4){border-left:0;padding-left:0}
+  .a2-blog-g3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:767px){
+  .a2-yari{min-height:480px}
+  .a2-say{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .a2-say li:nth-child(odd){border-left:0;padding-left:0}
+  .a2-say li:nth-child(4){border-left:1px solid #ddd5cc;padding-left:18px}
+  .a2-say li:last-child{grid-column:1/-1;border-left:0;padding-left:0}
+  .a2-blog-g3{grid-template-columns:1fr}
+  .a2-g5-in{padding:18px}
+}
+@media (prefers-reduced-motion:reduce){.a2-yari,.a2-g img{transition:none}}
 /* <<< iletisim */
 
 /* ---------- hareket: yalnız html.hk (betik çalışıyor, hareket azaltılmamış) ---------- */
