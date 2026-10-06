@@ -3421,7 +3421,7 @@ html.js .fd-dv-bt:hover{background:var(--fd-ink);color:#fff}
 .p-bt2 .ft a:hover{color:#fff}
 .p-bt2 .ft .ft-sep{background:rgba(255,255,255,.26)}
 .p-bt2 .ft .socials a{color:#fff}
-/* Beauty 3 (6 Eki, kullanıcı isteği): üst alan ve footer pembe bandın biraz koyu pudra tonu, yazılar koyu */
+/* Beauty 3 (6 Eki, kullanıcı isteği): üst alan pembe bandın biraz koyu pudra tonu, yazılar koyu; footer açık (pembe footer beğenilmedi) */
 .bt3-hero{background:#ecd9cf;color:#2a1f1c}
 .bt3-hero h1{color:#2a1f1c}
 .bt3-hero p{color:#4a3a35}
@@ -3431,8 +3431,6 @@ html.js .fd-dv-bt:hover{background:var(--fd-ink);color:#fff}
 .bt3-hero .ab-btn--cizgi:hover{background:#1b3a2b;border-color:#1b3a2b;color:#fff}
 .bt3-hero .kb-wa{color:#2a1f1c;border-color:rgba(42,31,28,.35)}
 .bt3-hero .kb-wa:hover{color:#1b3a2b;border-color:#1b3a2b}
-.p-bt3 .ft{background:#ecd9cf;border-top:0}
-.p-bt3 .ft .ft-sep{background:rgba(60,40,30,.2)}
 .p-bt3 .ft .socials a{transition:opacity .25s,transform .35s var(--ease)}
 .p-bt3 .ft .socials a:hover{opacity:.7;transform:translateY(-2px)}
 /* Beauty 3: Fit üst alanındaki gibi soldan taşan büyük silik Kalissa logosu (açık zeminde koyu pudra) */
