@@ -2974,25 +2974,55 @@ html.js .fd-dv-bt:hover{background:var(--fd-ink);color:#fff}
 .bt-yol h2{font:400 clamp(24px,2.3vw,33px)/1.12 var(--serif);color:#1f1a17;letter-spacing:-.01em}
 .bt-yol-l p{color:#4f4743;font-size:13.5px;margin-top:8px}
 .bt-yol-l .bt-btn{margin-top:18px}
+/* pembe alan (6 Eki): adımlar tıklanır; üzerine gelince kart açılır, ikon yeşile döner, başlık çizilir */
+.bt-yol{position:relative;overflow:hidden;isolation:isolate}
+.bt-yol::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.5;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .3 0 0 0 0 .26 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.bt-cizgi{position:relative;white-space:nowrap}
+.bt-cizgi-svg{position:absolute;left:-2%;bottom:-.16em;width:104%;height:.36em;overflow:visible;pointer-events:none}
+.bt-cizgi-svg path{fill:none;stroke:#b98676;stroke-width:2.4;stroke-linecap:round;stroke-dasharray:330;stroke-dashoffset:330;transition:stroke-dashoffset 1.3s var(--ease) .35s}
+.bt-yol-l.is-in .bt-cizgi-svg path,.bt-yol-l:hover .bt-cizgi-svg path,html:not(.hk) .bt-cizgi-svg path{stroke-dashoffset:0}
+.bt-yol-l .bt-btn--line .ic-wa{transition:transform .5s var(--ease)}
+.bt-yol-l .bt-btn--line:hover .ic-wa{transform:rotate(-12deg) scale(1.12)}
 .bt-adim{display:grid;grid-template-columns:repeat(3,1fr);list-style:none;margin:0;padding:0}
-.bt-adim li{padding:4px 26px;border-left:1px solid rgba(60,40,30,.18)}
-.bt-adim-ic{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#ead3c9;color:#5b4a43}
-.bt-adim-ic .ic{width:17px;height:17px}
-.bt-adim b{display:block;font:400 24px/1 var(--serif);color:#1f1a17;margin-top:12px}
+.bt-adim li{position:relative;padding:0 8px;border-left:1px solid rgba(60,40,30,.18);transition:border-color .4s}
+.bt-adim li:hover{border-left-color:transparent}
+.bt-adim li:hover+li{border-left-color:transparent}
+.bt-adim-a{position:relative;display:block;height:100%;padding:16px 20px 18px;border-radius:14px;overflow:hidden;color:inherit;transition:background-color .45s var(--ease),transform .5s var(--ease),box-shadow .5s var(--ease)}
+.bt-adim-a::after{content:attr(data-n);position:absolute;right:10px;bottom:-22px;font:400 104px/1 var(--serif);color:rgba(120,80,68,.06);pointer-events:none;transition:transform .7s var(--ease),color .5s}
+.bt-adim-a:hover,.bt-adim-a:focus-visible{background:rgba(255,252,249,.78);transform:translateY(-5px);box-shadow:0 22px 44px -30px rgba(90,52,40,.55),0 0 0 1px rgba(185,134,118,.18)}
+.bt-adim-a:hover::after,.bt-adim-a:focus-visible::after{transform:translate(-6px,-12px);color:rgba(120,80,68,.12)}
+.bt-adim-ic{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#ead3c9;color:#5b4a43;transition:background-color .45s,color .45s,transform .6s var(--ease)}
+.bt-adim-ic .ic{width:18px;height:18px}
+.bt-adim-a:hover .bt-adim-ic,.bt-adim-a:focus-visible .bt-adim-ic{background:var(--green);color:#fff;transform:rotate(-10deg) scale(1.06)}
+.bt-adim b{display:block;font:400 24px/1 var(--serif);color:#1f1a17;margin-top:12px;transition:color .4s,letter-spacing .5s var(--ease)}
+.bt-adim-a:hover b{color:#9a6a5c;letter-spacing:.06em}
 .bt-adim h3{font:400 18px/1.15 var(--serif);color:#1f1a17;margin-top:6px}
-.bt-adim p{font-size:12.5px;line-height:1.45;color:#5f5752;margin-top:6px}
+.bt-adim h3 span{background:linear-gradient(#9a6a5c,#9a6a5c) 0 100%/0 1px no-repeat;padding-bottom:2px;transition:background-size .55s var(--ease)}
+.bt-adim-a:hover h3 span,.bt-adim-a:focus-visible h3 span{background-size:100% 1px}
+.bt-adim p{font-size:12.5px;line-height:1.45;color:#5f5752;margin-top:6px;max-width:220px}
+.bt-adim-ok{position:absolute;right:16px;top:18px;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;opacity:0;transform:translate(-8px,8px) scale(.7);transition:opacity .4s,transform .5s var(--ease)}
+.bt-adim-ok .ic{width:13px;height:13px;transform:rotate(-45deg)}
+.bt-adim-a:hover .bt-adim-ok,.bt-adim-a:focus-visible .bt-adim-ok{opacity:1;transform:none}
+@media (hover:none){.bt-adim-ok{opacity:.9;transform:none;width:26px;height:26px}}
+/* alt çağrı: saksı yerine kum saati (kendine zaman ayır) */
+.bt-cta-obje{position:absolute;right:max(0px,calc((100vw - 1320px)/2));bottom:-22%;height:150%;width:auto;mix-blend-mode:multiply;filter:brightness(1.07);pointer-events:none;-webkit-mask-image:radial-gradient(closest-side,#000 48%,transparent 82%);mask-image:radial-gradient(closest-side,#000 48%,transparent 82%)}
+@media (max-width:1023px){.bt-cta-obje{height:80%}}
+@media (max-width:767px){
+  .bt-adim{grid-template-columns:1fr}
+  .bt-adim li{border-left:0;border-top:1px solid rgba(60,40,30,.18);padding:6px 0}
+  .bt-adim li:first-child{border-top:0}
+  .bt-cta-obje{height:130px;right:50%;transform:translateX(50%);bottom:-4px}
+}
 .bt-cta{position:relative;overflow:hidden;background:#f6f1ea;text-align:center}
 .bt-cta-zemin{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:0 0}
 .bt-cta-in{position:relative;padding-top:36px;padding-bottom:38px}
 .bt-cta h2{font:400 clamp(28px,2.8vw,40px)/1.05 var(--serif);color:#1f1a17}
 .bt-cta p{color:#4f4743;margin-top:8px;font-size:14.5px}
 .bt-cta .bt-btn{margin-top:16px}
-.bt-cta-saksi{position:absolute;right:max(16px,calc((100vw - 1240px)/2));bottom:0;height:92%;width:auto;mix-blend-mode:multiply;pointer-events:none;-webkit-mask-image:radial-gradient(closest-side,#000 62%,transparent 100%);mask-image:radial-gradient(closest-side,#000 62%,transparent 100%)}
 @media (max-width:1023px){
   .bt-grid{grid-template-columns:repeat(2,1fr)}
   .bt-kart,.bt-kart:nth-child(7){grid-column:auto}
   .bt-yol-in{grid-template-columns:1fr;gap:22px}
-  .bt-cta-saksi{height:72%}
 }
 @media (max-width:767px){
   .bt-hero{padding-top:30px}
@@ -3000,11 +3030,7 @@ html.js .fd-dv-bt:hover{background:var(--fd-ink);color:#fff}
   .bt-kol--o{grid-column:1/-1;order:-1;aspect-ratio:16/9}
   .bt-kol--l,.bt-kol--r{aspect-ratio:1}
   .bt-grid{grid-template-columns:1fr}
-  .bt-adim{grid-template-columns:1fr}
-  .bt-adim li{border-left:0;border-top:1px solid rgba(60,40,30,.18);padding:16px 0}
-  .bt-adim li:first-child{border-top:0;padding-top:0}
   .bt-cta-in{padding-top:30px;padding-bottom:128px}
-  .bt-cta-saksi{height:120px;right:50%;transform:translateX(50%)}
 }
 
 /* ===== Blog (6 Eki): görselli kartlar; detayda görselli giriş + akordiyon bölümler ===== */
