@@ -144,4 +144,14 @@ document.addEventListener('DOMContentLoaded',()=>{
     pn.forEach((x,j)=>{x.hidden=j!==0});
     kap.classList.add('is-hazir');
   });
+  // Kategori önerisi A: hizmet kartlarını süz (6 Eki)
+  document.querySelectorAll('.ka-filtre').forEach(f=>{
+    const bs=[...f.querySelectorAll('[data-filtre]')],ks=[...document.querySelectorAll('.ka-kart')];
+    bs.forEach(b=>b.addEventListener('click',()=>{const v=b.dataset.filtre;bs.forEach(x=>x.classList.toggle('is-aktif',x===b));ks.forEach(k=>{k.hidden=!(v==='hepsi'||k.dataset.grup===v)})}));
+  });
+  // Kategori önerisi B: satırın üzerine gelince soldaki görsel o hizmetinkine geçer
+  document.querySelectorAll('.kb-liste').forEach(l=>{
+    const g=[...l.querySelectorAll('.kb-sahne-g')],ad=l.querySelector('.kb-sahne-ad');if(g.length<2)return;let on=0;
+    l.querySelectorAll('.kb-satir').forEach(r=>{const git=()=>{if(g[on].getAttribute('src')===r.dataset.img)return;const y=1-on;g[y].src=r.dataset.img;g[y].classList.add('is-on');g[on].classList.remove('is-on');on=y;if(ad)ad.textContent=r.dataset.ad};r.addEventListener('mouseenter',git);r.addEventListener('focus',git)});
+  });
 });
