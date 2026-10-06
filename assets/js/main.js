@@ -179,10 +179,18 @@ document.addEventListener('DOMContentLoaded',()=>{
   });
   // Dokunmatik ekranda üzerine gelme yok: kaydırırken ekranın ortasına gelen madde kendiliğinden öne çıkar (6 Eki)
   if(matchMedia('(hover: none)').matches&&'IntersectionObserver' in window){
-    document.querySelectorAll('.bt-adim,.ab2-oz,.ab3-oz ul,.p-hk1 .feats,.ka-oz').forEach(g=>{
+    document.querySelectorAll('.bt-adim,.ab2-oz,.ab3-oz ul,.p-hk1 .feats,.ka-oz,.fz-adim-g,.fd-oz-in,.fd-dv-kisa').forEach(g=>{
       const og=[...g.children];
       const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)og.forEach(o=>o.classList.toggle('is-vurgu',o===e.target))})},{rootMargin:'-42% 0px -42% 0px'});
       og.forEach(o=>io.observe(o));
     });
+  }
+  // Sayılar görününce sıfırdan sayarak gelir (6 Eki)
+  const sayaclar=document.querySelectorAll('.sayac');
+  if(sayaclar.length&&'IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    const sio=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)return;sio.unobserve(e.target);
+      const el=e.target,h=+el.dataset.hedef,t0=performance.now(),sure=900+Math.min(h,60)*12;el.textContent='0';
+      const ad=t=>{const q=Math.min(1,(t-t0)/sure);el.textContent=String(Math.round(h*(1-Math.pow(1-q,3))));if(q<1)requestAnimationFrame(ad)};requestAnimationFrame(ad)})},{threshold:.6});
+    sayaclar.forEach(x=>sio.observe(x));
   }
 });
