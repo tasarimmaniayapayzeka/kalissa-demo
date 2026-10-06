@@ -3412,6 +3412,42 @@ html.js .fd-dv-bt:hover{background:var(--fd-ink);color:#fff}
 .p-ka .ft .ft-sep{background:rgba(255,255,255,.26)}
 .p-ka .ft .socials a{color:#fff}
 @media (max-width:767px){.ka-kolaj-s{padding-top:20px}}
+
+/* Beauty 2 (6 Eki, kullanıcı isteği): üst alan ve footer yeşil, üstünde beyaz */
+.bt2-hero h1{font-size:clamp(34px,4vw,60px);line-height:1}
+.p-bt2 .ft{background:#1b3a2b;color:#f4efe8;border-top:0}
+.p-bt2 .ft .logo-img{filter:brightness(0) invert(1)}
+.p-bt2 .ft .logo-sub,.p-bt2 .ft p,.p-bt2 .ft a{color:#f1ece4}
+.p-bt2 .ft a:hover{color:#fff}
+.p-bt2 .ft .ft-sep{background:rgba(255,255,255,.26)}
+.p-bt2 .ft .socials a{color:#fff}
+/* Beauty 3 (6 Eki, kullanıcı isteği): üst alan ve footer pembe bandın biraz koyu pudra tonu, yazılar koyu */
+.bt3-hero{background:#ecd9cf;color:#2a1f1c}
+.bt3-hero h1{color:#2a1f1c}
+.bt3-hero p{color:#4a3a35}
+.bt3-hero .kb-ust{color:#8a6f66}
+.bt3-hero .ab3-ayrac{background:rgba(60,40,30,.22)}
+.bt3-hero .ab-btn--cizgi{color:#2a1f1c;border-color:rgba(42,31,28,.55)}
+.bt3-hero .ab-btn--cizgi:hover{background:#1b3a2b;border-color:#1b3a2b;color:#fff}
+.bt3-hero .kb-wa{color:#2a1f1c;border-color:rgba(42,31,28,.35)}
+.bt3-hero .kb-wa:hover{color:#1b3a2b;border-color:#1b3a2b}
+.p-bt3 .ft{background:#ecd9cf;border-top:0}
+.p-bt3 .ft .ft-sep{background:rgba(60,40,30,.2)}
+.p-bt3 .ft .socials a{transition:opacity .25s,transform .35s var(--ease)}
+.p-bt3 .ft .socials a:hover{opacity:.7;transform:translateY(-2px)}
+/* Beauty 3: Fit üst alanındaki gibi soldan taşan büyük silik Kalissa logosu (açık zeminde koyu pudra) */
+.bt3-hero{position:relative;overflow:hidden;isolation:isolate}
+.bt3-mono{position:absolute;z-index:-1;top:50%;left:0;height:175%;aspect-ratio:151.48/162.83;translate:-36% -50%;background:rgba(138,92,78,.12);-webkit-mask:url(../images/logo/kalissa-ss-ikon-siyah.svg) center/contain no-repeat;mask:url(../images/logo/kalissa-ss-ikon-siyah.svg) center/contain no-repeat;pointer-events:none}
+@media (max-width:767px){.bt3-mono{height:120%;translate:-46% -50%}}
+/* Fit/Beauty menüsü 1199 px altında açılır panel: alt menü düz liste olur */
+@media (max-width:1199px){
+  .hdr--fit .hdr-alt{display:block}
+  .hdr--fit .hdr-alt::after,.hdr--fit .hdr-alt>a::before{display:none}
+  .hdr--fit .hdr-alt>a{display:block;padding-right:0!important}
+  .hdr--fit .hdr-alt-m{position:static;opacity:1;visibility:visible;transform:none;min-width:0;padding:4px 0 10px 14px;border:0;border-radius:0;background:none;box-shadow:none;transition:none}
+  .hdr--fit .hdr-nav .hdr-alt-m a{padding:10px 0;font-size:14px;border-bottom:0;border-radius:0;color:#5a524e}
+  .hdr--fit .hdr-nav .hdr-alt-m a.is-aktif{background:none;color:var(--green);font-weight:600}
+}
 /* <<< iletisim */
 
 /* ---------- hareket: yalnız html.hk (betik çalışıyor, hareket azaltılmamış) ---------- */
