@@ -3950,6 +3950,64 @@ section:hover>.wrap .a2-eb2::after,.a2-bas:hover .a2-eb2::after{width:96px}
   .p-ana2 section:hover>.hz3-yan i{height:110px;opacity:.6}
   .p-ana2 section:hover>.hz3-yan span{letter-spacing:.5em;opacity:1}
 }
+
+/* "Sayfalar" açılır menüsü (6 Eki, inceleme için): bütün sayfalar ve sürümler sütunlar halinde */
+.hdr-alt--mega{position:static}
+.hdr-alt--mega::after{left:0;right:0}
+/* menü satırının dolu olduğu ara genişliklerde gizli; geniş ekranda ve açılır panelde (telefon/tablet) görünür */
+@media (min-width:1024px) and (max-width:1280px){.hdr-alt--mega{display:none}}
+@media (min-width:1024px){.hdr-alt--mega>a::before{display:block}}
+.hdr-mega{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px 20px;width:min(1240px,96vw);max-height:calc(100vh - 130px);overflow:auto;padding:20px 22px}
+.hdr-mega .hm-k{display:flex;flex-direction:column;gap:1px;min-width:0}
+.hdr-mega .hm-b{margin-bottom:6px;padding:4px 10px 8px;border-bottom:1px solid #eee5dc;font:600 10.5px/1.2 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:#8a7f78}
+.hdr-nav .hdr-mega a{padding:7px 10px;font-size:13px;line-height:1.25;white-space:normal}
+.hdr-mega .hm-ikili{display:flex;align-items:center;gap:3px;padding:3px 0 3px 10px;font-size:13px;color:var(--ink)}
+.hdr-mega .hm-ikili span{flex:1;min-width:0}
+@media (min-width:1024px){.hdr-mega .hm-ikili.hm-cok{flex-wrap:wrap;row-gap:5px}.hdr-mega .hm-ikili.hm-cok span{flex:1 0 100%}}
+.hdr-nav .hdr-mega .hm-ikili a{min-width:26px;padding:5px 7px;border-radius:6px;background:#f3ede6;font-size:12px;text-align:center}
+.hdr-nav .hdr-mega .hm-ikili a:hover{background:var(--green);color:#fff}
+.hdr-mega .hm-alt{grid-column:1/-1;padding-top:10px;border-top:1px solid #eee5dc;text-align:right}
+.hdr-nav .hdr-mega .hm-alt a{display:inline-flex;align-items:center;gap:8px;font-weight:600}
+.hdr-mega .hm-alt .ic{width:14px;height:14px}
+@media (max-width:1023px){
+  .hdr-nav.is-open{max-height:calc(100vh - 70px);overflow-y:auto}
+  .hdr-mega{display:flex!important;flex-direction:column;width:auto;max-height:none;overflow:visible;gap:12px;padding:4px 0 12px 14px}
+  .hdr-mega .hm-b{padding-left:0}
+  .hdr-mega .hm-ikili{padding-left:0}
+  .hdr-mega .hm-alt{text-align:left}
+}
+/* site haritası sayfası */
+.sh{padding:44px 0 60px}
+.sh h1{font:400 clamp(36px,4vw,56px)/1.05 var(--serif);margin-top:10px}
+.sh>.wrap>p{color:#5f5752;margin-top:8px}
+.sh h2{font:400 clamp(26px,2.4vw,34px)/1.1 var(--serif);margin-top:44px}
+.sh-g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;margin-top:22px}
+.sh-k{padding:18px 20px;border:1px solid #e6ddd3;border-radius:10px;background:#fffdf9}
+.sh-k h3{font:400 20px/1.2 var(--serif)}
+.sh-k h3 small{font-family:var(--sans);font-size:12px;margin-left:6px}
+.sh-k h3 small a{color:#9a6a5c;text-decoration:underline}
+.sh-k ul{list-style:none;margin:10px 0 0;padding:0}
+.sh-k li a{display:block;padding:5px 0;font-size:14px;color:#3d3633;border-bottom:1px dashed #eee5dc;transition:color .25s,padding .3s}
+.sh-k li a:hover{color:var(--green);padding-left:6px}
+@media (max-width:1023px){.sh-g{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:767px){.sh-g{grid-template-columns:1fr}}
+
+/* ana sayfa menüsü 1024-1100 px: açılır menü okları satırı uzatıyordu; aralıklar sıkılaştırıldı */
+@media (min-width:1024px) and (max-width:1100px){.hdr--home .hdr-nav{gap:16px;font-size:13px}.hdr--home .hdr-alt>a{padding-right:13px!important}.hdr--home .btn-hdr{padding-left:18px;padding-right:18px}}
+
+/* 6 Eki: sürüm okları ve "Sayfalar" eklenince menü yazıları iki satıra kırılıyordu.
+   Üst düzey bağlantılar tek satırda kalır; sığmayan başlıklarda aralık daraltıldı.
+   Fit/Beauty başlığında FIT|BEAUTY geçişi 1200-1439 px'te gizli (1024-1199'da zaten gizliydi; menüde Kalissa Fit/Beauty var). */
+@media (min-width:1024px){.hdr-nav>a,.hdr-nav>.hdr-alt>a{white-space:nowrap}}
+@media (min-width:1024px) and (max-width:1199px){
+  .hdr--inner .hdr-nav{gap:12px;font-size:12px}
+  .hdr--inner .hdr-alt>a{padding-right:12px!important}
+  .hdr--inner .hdr-act{gap:16px}
+  .hdr--inner .btn-hdr{padding-left:18px;padding-right:18px}
+}
+@media (min-width:1200px) and (max-width:1439px){body:not(.p-fd) .hdr--fit .hdr-gecis{display:none}}
+@media (min-width:1281px){.hdr--fit .hdr-nav{gap:28px}}
+@media (min-width:1200px) and (max-width:1365px){.p-fd .hdr--fit .hdr-nav{gap:calc(34 * var(--u))}}
 /* <<< iletisim */
 
 /* ---------- hareket: yalnız html.hk (betik çalışıyor, hareket azaltılmamış) ---------- */
