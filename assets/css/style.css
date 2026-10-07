@@ -4008,6 +4008,12 @@ section:hover>.wrap .a2-eb2::after,.a2-bas:hover .a2-eb2::after{width:96px}
 @media (min-width:1200px) and (max-width:1439px){body:not(.p-fd) .hdr--fit .hdr-gecis{display:none}}
 @media (min-width:1281px){.hdr--fit .hdr-nav{gap:28px}}
 @media (min-width:1200px) and (max-width:1365px){.p-fd .hdr--fit .hdr-nav{gap:calc(34 * var(--u))}}
+
+/* 7 Eki: hizmet detay (Beauty/SPA/Diyetisyen) randevu bölümü: geniş ekranda sol boşlukta silik, dikey Kalissa Beauty logosu.
+   Kalıp .wrap (1280 + 2×80); boşluğun ortası kalıbın sol kenarından (1600px - 100vw) / 4 uzakta. */
+@media (min-width:1600px){
+  .sd-cta:not(.sd-cta--fit) .sd-cta-in::before{content:"";position:absolute;left:calc((1600px - 100vw) / 4);top:50%;height:min(180px,calc((100vw - 1280px) / 3.6));aspect-ratio:444.27/184.69;background:url(../images/logo/kalissa-beauty-wellness-welcoming-red.svg) center/contain no-repeat;opacity:.16;translate:-50% -50%;rotate:-90deg;pointer-events:none}
+}
 /* <<< iletisim */
 
 /* ---------- hareket: yalnız html.hk (betik çalışıyor, hareket azaltılmamış) ---------- */
